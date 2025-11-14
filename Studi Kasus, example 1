@@ -1,0 +1,29 @@
+#Permasalahan Modul 3
+
+bahan_bakar_awal = 120
+bahan_bakar_isi_ulang = 20
+membutuhkan_per_putaran = 5
+putaran_per_pitstop = 10
+jumlah_ban_per_ganti = 4
+
+total_putaran = 0
+total_bahan_bakar = bahan_bakar_awal
+total_ban_digunakan = 0
+jumlah_pitstop = 0
+putaran_saat_ini =  0
+
+while total_bahan_bakar >= membutuhkan_per_putaran:
+    total_putaran += 1 
+    putaran_saat_ini += 1
+    total_bahan_bakar -= membutuhkan_per_putaran
+if putaran_saat_ini == putaran_per_pitstop:
+    jumlah_pitstop += 1
+    putaran_saat_ini = 0
+    total_bahan_bakar += bahan_bakar_isi_ulang
+    total_ban_digunakan += jumlah_ban_per_ganti
+
+print(f"Hasil Balapan dengan Bahan Bakar Awal 120L dan membutuhkan 5 liter per putaran:\n{'-'*60}")
+print(f"Total Putaran yang ditempuh: {total_putaran} putaran")
+print(f"Jumlah Pit Stop (Pengisian BB & Ganti Ban): {jumlah_pitstop} kali")
+print(f"Total Ban yang digunakan: {total_ban_digunakan} ban")
+print(f"Sisa Bahan Bakar (kurang dari 5L): {total_bahan_bakar:.2f} liter")
